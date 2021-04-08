@@ -10,7 +10,12 @@
  * php bin/console doctrine:fixtures:load
  *
  */
-
+//a
+b
+b
+b
+b
+AppFixtures
 //un autre problème ici
 //ptit commentaire encore dév 1
 //lfksd kladfkla flad lkdjsf
