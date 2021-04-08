@@ -55,6 +55,11 @@ class AppFixtures extends Fixture
         $user->setRoles(['ROLE_USER']);
         $manager->persist($user);
 
+        kdjafdsflkds
+        jasdkfljsdkaf
+        jdfkldsjflsdjlf
+        jsdfkljasdkfdjls
+
         //on crée un admin
         $user = new User();
         $user->setEmail('admin@yo.com');
@@ -82,10 +87,3 @@ class AppFixtures extends Fixture
 
             //on sauvegarde dans la boucle
             $manager->persist($event);
-        }
-
-        //et on flush après la boucle (plus rapide)
-        $manager->flush();
-
-    }
-}
