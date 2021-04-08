@@ -1,5 +1,5 @@
 <?php
-
+//ptit commentaire dév 1
 /**
  *
  * Pour installer le bundle de fixture ET faker
@@ -11,16 +11,17 @@
  *
  */
 
-
+//ptit commentaire encore dév 1
 namespace App\DataFixtures;
 
 use App\Entity\Event;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class AppFixtures extends Fixture
+
 {
     //on se fait passer l'encodeur de mot de passe dans le contructeur
     private $encoder;
