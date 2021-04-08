@@ -1,5 +1,5 @@
 <?php
-
+//dév 2 cherche les problèmes
 /**
  *
  * Pour installer le bundle de fixture ET faker
@@ -11,7 +11,7 @@
  *
  */
 
-
+//un autre problème ici
 namespace App\DataFixtures;
 
 use App\Entity\Event;
