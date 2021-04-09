@@ -1,5 +1,5 @@
 <?php
-//dév 2 cherche les problèmes
+
 /**
  *
  * Pour installer le bundle de fixture ET faker
@@ -10,15 +10,7 @@
  * php bin/console doctrine:fixtures:load
  *
  */
-//a
-b
-b
-b
-b
-AppFixtures
-//un autre problème ici
-//ptit commentaire encore dév 1
-//lfksd kladfkla flad lkdjsf
+
 namespace App\DataFixtures;
 
 use App\Entity\Event;
@@ -42,7 +34,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         //charge un fichier sql et exécute les requêtes qui s'y trouvent
-        $sql = file_get_contents(__DIR__  . '/city.sql');
+        $sql = file_get_contents(__DIR__ . '/city.sql');
         $stmt = $manager->getConnection()->prepare($sql);
         $stmt->execute();
         //nécessaire sinon ça pète une erreur
@@ -60,11 +52,6 @@ class AppFixtures extends Fixture
         $user->setRoles(['ROLE_USER']);
         $manager->persist($user);
 
-        kdjafdsflkds
-        jasdkfljsdkaf
-        jdfkldsjflsdjlf
-        jsdfkljasdkfdjls
-
         //on crée un admin
         $user = new User();
         $user->setEmail('admin@yo.com');
@@ -79,16 +66,21 @@ class AppFixtures extends Fixture
         $allUsers = $manager->getRepository(User::class)->findAll();
 
         //plein de création d'événements
-        for($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 100; $i++) {
 
             $event = new Event();
-            $event->setName( $faker->sentence );
-            $event->setDescription( $faker->realText(1000) );
+            $event->setName($faker->sentence);
+            $event->setDescription($faker->realText(1000));
             $event->setMaxRegistrations(mt_rand(10, 100));
-            $event->setStartDate( $faker->dateTimeBetween('- 6 months', 'now') );
+            $event->setStartDate($faker->dateTimeBetween('- 6 months', 'now'));
 
             //un utilisateur au hasard en tant qu'organisateur
-            $event->setOrganizer( $faker->randomElement($allUsers) );
+            $event->setOrganizer($faker->randomElement($allUsers));
 
             //on sauvegarde dans la boucle
             $manager->persist($event);
+        }
+
+        $manager->flush();
+    }
+}
