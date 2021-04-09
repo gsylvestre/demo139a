@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Démo ajax !{% endblock %}
+
+{% block body %}
+    <h2>Démo ajax avec Symfony !</h2>
+    <label for="kw">Un champ</label>
+    <input type="text" id="kw">
+
+    <div id="results"></div>
+
+    <script>
+        const searchCityUrl = "{{ path('demo_city_search') }}";
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        let searchInput = document.getElementById("kw");
+        searchInput.addEventListener("keyup", sendAjaxRequest);
+
+        function sendAjaxRequest(){
+            let keyword = searchInput.value;
+            axios.get(searchCityUrl, {
+                params: {
+                    "keyword": keyword
+                }
+            })
+            .then(function(response){
+                console.log(response.data);
+                let resultsContainer = document.getElementById("results");
+                resultsContainer.innerHTML = response.data;
+            });
+        }
+    </script>
+{% endblock %}
