@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EventController!{% endblock %}
+
+{% block body %}
+    <h3>Sorties</h3>
+    <table cellpadding="5">
+        <tr>
+            <th>Nom</th>
+            <th>Date</th>
+            <th>Inscriptions</th>
+        </tr>
+    {% for event in events %}
+        <tr>
+            <td>{{ event.name }}</td>
+            <td>{{ event.startDate|date("d-m-Y") }}</td>
+            <td>{{ event.registrationsCount }} inscrits / {{ event.maxRegistrations }} places</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

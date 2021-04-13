@@ -72,7 +72,9 @@ class AppFixtures extends Fixture
             $event->setName($faker->sentence);
             $event->setDescription($faker->realText(1000));
             $event->setMaxRegistrations(mt_rand(10, 100));
-            $event->setStartDate($faker->dateTimeBetween('- 6 months', 'now'));
+            $event->setRegistrationsCount(mt_rand(10, 100));
+            $event->setState('OPEN');
+            $event->setStartDate($faker->dateTimeBetween('- 6 months', '+ 2 months'));
 
             //un utilisateur au hasard en tant qu'organisateur
             $event->setOrganizer($faker->randomElement($allUsers));

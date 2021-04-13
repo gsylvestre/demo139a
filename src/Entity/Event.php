@@ -43,6 +43,16 @@ class Event
      */
     private $organizer;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $registrationsCount;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $state;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +114,30 @@ class Event
     public function setOrganizer(?User $organizer): self
     {
         $this->organizer = $organizer;
+
+        return $this;
+    }
+
+    public function getRegistrationsCount(): ?int
+    {
+        return $this->registrationsCount;
+    }
+
+    public function setRegistrationsCount(int $registrationsCount): self
+    {
+        $this->registrationsCount = $registrationsCount;
+
+        return $this;
+    }
+
+    public function getState(): ?string
+    {
+        return $this->state;
+    }
+
+    public function setState(string $state): self
+    {
+        $this->state = $state;
 
         return $this;
     }
